@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block title%} HOME {% endblock%}
+
+{% block content%}
+{% comment %} <header> {% endcomment %}
+    <h1> HOME PAGE </h1>
+{% comment %} </header> {% endcomment %}
+<br>
+<br>
+<br>
+{% if user.is_authenticated%}
+<p> Welcom <h1> {{user.username}} </h1> <br><a href="{% url 'logout' %}"> Log Out </a></p>
+{%else%}
+<a href="{% url 'login' %}"> Log In </a> <br><a href="{% url 'signup' %}"> Sign Up </a>
+
+{% endif%}
+
+{% endblock %}

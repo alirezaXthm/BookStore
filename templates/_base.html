@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+    {% block title%}
+    {% endblock%}
+ </title>
+ <style>
+  body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+  }
+  header {
+   background-color: #123456;
+   color: #fff;
+   text-align: center;
+   padding: 20px;
+  }
+  h1 {
+   margin: 0;
+  }
+  nav {
+   background-color: #9999ff;
+   padding: 10px;
+   text-align: center;
+  }
+  nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  }
+  nav li {
+   display: inline-block;
+   margin-right: 20px;
+  }
+  nav a {
+   color: #000000
+   ;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 18px;
+  }
+  main {
+   padding: 200px;
+   text-align: center;
+  }
+  p {
+   font-size: 16px;
+   line-height: 1.5;
+   margin-bottom: 20px;
+  }
+  footer {
+   background-color: #9999ff;
+   color: #fff;
+   padding: 110px;
+   text-align: center;
+  }
+ </style>
+</head>
+<body>
+ <header>
+  <h1>BookStore</h1>
+ </header>
+ <nav>
+  <ul>
+   <li><a href="{% url "home" %}">Home</a></li>
+  {% if user.is_authenticated %}
+   {% comment %} <li><a href="{% url "logout" %}">Logout</a></li> {% endcomment %}
+   {% else%}
+   {% comment %} <li><a href="{% url 'login' %}">Login</a></li> 
+   <li><a href="{% url 'signup' %}">Signup</a></li> {% endcomment %}
+  {% endif%}
+
+
+  </ul>
+ </nav>
+ <main>
+    {% block content %}
+    
+    {% endblock %}
+
+ </main>
+ <footer>
+    {% comment %} <p>
+        <h1>
+            
+        </h1>
+    </p>
+  <p>&copy; 2023 My Landing Page. All rights reserved.</p> {% endcomment %}
+ </footer>
+</body>
+</html>
