@@ -11,7 +11,7 @@
 <br>
 {% if user.is_authenticated%}
 <p> Welcome <h1> {{user.username}} </h1> <br><a href="{% url 'logout' %}"> Log Out </a></p>
-{%else%}
+{% else%}
 <a href="{% url 'login' %}"> Log In </a> <br><br> <a href="{% url 'signup' %}"> Sign Up </a>
 
 {% endif%}
