@@ -2,7 +2,9 @@
 {% block title %} لیست کتاب ها{% endblock%}
 {% block content %}
 {% for book in books%}
-<h1>{{book.title}}</h1>
+<a href = "{{book.get_absolute_url}}"><h2>{{book.title}}</h2></a> 
+
 <br>
+<p>{{book.content}} </p>
 {% endfor %}
 {% endblock%}
