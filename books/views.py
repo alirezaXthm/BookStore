@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from .models import Book
 
 class BookListView(generic.ListView):
+    paginate_by = 5
     model = Book
     template_name = 'books/book_list.html'    
     context_object_name = 'books'
